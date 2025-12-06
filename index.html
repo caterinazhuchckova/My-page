@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Жучкова Екатерина Алексеевна | Преподаватель языков</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Жучкова Екатерина Алексеевна | Репетитор английского языка</title>
     <style>
         :root {
-            --primary: #4A90E2;
-            --secondary: #50E3C2;
-            --accent: #F5A623;
-            --light: #F0F8FF;
-            --dark: #2C3E50;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --primary: #6a1b9a;
+            --secondary: #8e24aa;
+            --accent: #ff4081;
+            --light: #f3e5f5;
+            --bg: #f5f7ff;
+            --dark: #263238;
+            --white: #ffffff;
+            --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -21,273 +24,573 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--light);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #ede7f6 0%, #e3f2fd 100%);
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        .container {
+        a {
+            color: inherit;
+        }
+
+        /* Навигация */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: var(--shadow);
+        }
+
+        .navbar-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
+            padding: 0.75rem 1.5rem;
         }
 
-        .header-content {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-            padding-right: 2rem;
-        }
-
-        .header-image {
-            flex: 0 0 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .profile-pic {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 0 30px rgba(0,0,0,0.2);
-            animation: bounceIn 1s ease-out;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--dark);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .navbar-logo {
+            color: var(--white);
+            font-weight: 700;
             font-size: 1.1rem;
+            white-space: nowrap;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            background: var(--accent);
+        .navbar-menu {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .navbar-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 90px auto 2rem auto;
+            padding: 0 1rem 2rem 1rem;
         }
 
         section {
-            padding: 3rem 1rem;
-            margin: 2rem 0;
-            border-radius: 15px;
-            background: white;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            background: var(--white);
+            border-radius: 18px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
         section:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            text-align: center;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: linear-gradient(to bottom right, #fff, #f8f9fa);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: scale(1.05);
-            border-color: var(--secondary);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .testimonials {
-            background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
-            padding: 3rem 1rem;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 4rem;
-            color: var(--secondary);
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .quote {
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .author {
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
+            font-size: 2rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            gap: 0.5rem;
         }
 
-        .contact-item:hover {
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
             background: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.96), rgba(142, 36, 170, 0.96));
+            color: var(--white);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-main h1 {
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero-quote {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text {
+            font-size: 0.98rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .hero-languages {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-languages strong {
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .badge-list span {
+            background: rgba(255, 255, 255, 0.16);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            background: var(--white);
+            color: var(--primary);
+            padding: 0.7rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 0.98rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px) scale(1.03);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: #5e35b1;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-block {
+            margin-top: 1rem;
+            background: #e3f2fd;
+            border-radius: 12px;
+            padding: 0.9rem 1rem;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 0.8rem 0 0.3rem 0;
+        }
+
+        .pill {
+            background: #ede7f6;
+            border-radius: 999px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .method-card {
+            background: #f5f7ff;
+            border-radius: 16px;
+            padding: 1rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            background: #e1e9ff;
+            transform: translateY(-3px);
+        }
+
+        .method-emoji {
+            font-size: 1.5rem;
+        }
+
+        .formats-header {
+            margin-bottom: 1rem;
+        }
+
+        .formats-list {
+            margin-bottom: 1.2rem;
+        }
+
+        .formats-list li strong {
+            color: var(--primary);
+        }
+
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.3rem;
+            margin-top: 1rem;
+        }
+
+        .format-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.5rem 1.4rem;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .format-card:hover {
+            border-color: #d1c4e9;
+            transform: translateY(-3px);
+        }
+
+        .format-title {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .format-icon {
+            margin-right: 0.4rem;
+        }
+
+        .format-desc {
+            font-size: 0.95rem;
+        }
+
+        .price {
+            margin-top: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .price span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #757575;
+            display: block;
+        }
+
+        .format-actions {
+            margin-top: 0.7rem;
+        }
+
+        .btn-small {
+            padding: 0.55rem 1.2rem;
+            font-size: 0.9rem;
+            box-shadow: none;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .tool-pill {
+            background: #e3f2fd;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tools-note {
+            margin-top: 0.7rem;
+            font-size: 0.9rem;
+            color: #546e7a;
+        }
+
+        /* Квиз */
+        #quiz {
+            position: relative;
+        }
+
+        .quiz-intro {
+            margin-bottom: 1rem;
+        }
+
+        .quiz-card {
+            background: #f5f7ff;
+            border-radius: 18px;
+            padding: 1.5rem 1.4rem;
+        }
+
+        .quiz-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .quiz-meta span {
+            background: var(--white);
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .quiz-option {
+            background: var(--white);
+            border-radius: 999px;
+            padding: 0.6rem 1rem;
+            border: 2px solid transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.96rem;
+            transition: var(--transition);
+        }
+
+        .quiz-option:hover {
             transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--secondary);
+        }
+
+        .quiz-option.correct {
+            border-color: #2e7d32;
+            background: #e8f5e9;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #c62828;
+            background: #ffebee;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+            color: #546e7a;
+        }
+
+        .quiz-progress-bar {
+            margin-top: 0.7rem;
+            width: 100%;
+            height: 10px;
+            background: var(--white);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
+        .quiz-actions .btn {
+            box-shadow: none;
+        }
+
+        .quiz-actions .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-result {
+            text-align: center;
+        }
+
+        .quiz-score-big {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0.3rem 0;
+        }
+
+        .quiz-level {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-advice {
+            margin-top: 0.7rem;
+        }
+
+        .quiz-cta {
+            margin-top: 1.3rem;
+        }
+
+        .quiz-cta p {
+            margin-bottom: 0.5rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Контакты */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: var(--white);
+        }
+
+        .contact-section h2::before {
+            background: var(--white);
+        }
+
+        .contact-btn {
+            margin-top: 0.8rem;
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .contact-btn:hover {
+            background: #f3e5f5;
+        }
+
+        .contact-note {
+            margin-top: 0.7rem;
+            font-size: 0.9rem;
+            opacity: 0.95;
         }
 
         footer {
-            background: var(--dark);
-            color: white;
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: #546e7a;
         }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: var(--primary);
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Анимация появления */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(18px);
             }
             to {
                 opacity: 1;
@@ -295,198 +598,561 @@
             }
         }
 
-        @keyframes bounceIn {
-            from {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
+        .animate {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 840px) {
+            .hero {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header {
+        @media (max-width: 720px) {
+            .navbar-inner {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
+                gap: 0.45rem;
             }
-            
-            .header-content {
-                padding-right: 0;
-                margin-bottom: 2rem;
+
+            .navbar-menu {
+                justify-content: flex-start;
             }
-            
-            .header-image {
-                flex: 0 0 100%;
+
+            .container {
+                margin-top: 110px;
             }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .tagline {
-                font-size: 1rem;
-            }
-            
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-            }
-            
+
             section {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1.1rem;
             }
-            
-            h2 {
+
+            h1 {
                 font-size: 2rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .profile-pic {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .services-grid, .testimonial-grid {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Жучкова Екатерина Алексеевна</h1>
-            <div class="subtitle">Преподаватель английского, испанского, немецкого языков</div>
-            <div class="tagline">Для детей и взрослых<br>Группы и индивидуально<br>Уроки, на которых не скучно. Методика, которая работает. Педагог, который понимает.</div>
-            <div>
-                <a href="#contact" class="cta-button">Связаться со мной</a>
-            </div>
-        </div>
-        <div class="header-image">
-            <img src="https://i.imgur.com/7zKfGgR.jpg" alt="Екатерина Жучкова" class="profile-pic">
+    <!-- Навигация -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-logo">Жучкова Екатерина</div>
+            <nav class="navbar-menu">
+                <a href="#about">Обо мне</a>
+                <a href="#method">Методика</a>
+                <a href="#formats">Форматы</a>
+                <a href="#tools">Инструменты</a>
+                <a href="#quiz">Проверь уровень</a>
+                <a href="#contact">Контакт</a>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-        <section id="about">
-            <h2>Обо мне</h2>
-            <p>Здравствуйте! Меня зовут Екатерина Жучкова, и я с радостью помогу вам или вашему ребенку освоить английский, испанский или немецкий язык. С моим опытом преподавания и индивидуальным подходом к каждому ученику вы сможете достичь своих языковых целей быстро и эффективно.</p>
-            <p>Я верю, что изучение языка должно быть интересным и вдохновляющим процессом. Моя методика сочетает в себе современные образовательные технологии, практические задания и увлекательные материалы, которые помогут вам не только выучить язык, но и полюбить его.</p>
-            <p>Мои занятия подойдут как для начинающих, так и для тех, кто хочет углубить свои знания. Я работаю с детьми, подростками и взрослыми, адаптируя программу под ваши цели и темп обучения. Предлагаю как индивидуальные, так и групповые занятия.</p>
-        </section>
-
-        <section id="services">
-            <h2>Мои услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🇬🇧</div>
-                    <h3>Английский язык</h3>
-                    <p>От базового уровня до подготовки к международным экзаменам (IELTS, TOEFL). Разговорная практика, грамматика, лексика и аудирование.</p>
+    <main class="container">
+        <!-- Герой -->
+        <section class="hero animate" id="top">
+            <div class="hero-photo" style="text-align:center;">
+                <img src="IMG_0355.JPG" alt="Фото Екатерины Жучковой" style="width:100%; max-width:360px; border-radius:16px; box-shadow:0 4px 18px rgba(0,0,0,0.2); margin-bottom:1.2rem;" />
+            </div>
+            <div class="hero-main">
+                <div class="hero-badge">✨ Более 15 лет преподаю языки детям и взрослым</div>
+                <h1>Жучкова Екатерина Алексеевна</h1>
+                <p class="hero-subtitle">Преподаватель английского, испанского и немецкого языков</p>
+                <p class="hero-quote">«Мои ученики говорят, что занятия — это не рутина, а увлекательное путешествие в мир языка!»</p>
+                <p class="hero-text">
+                    Помогаю школьникам и взрослым говорить уверенно, понимать живую речь и чувствовать себя свободно на уроках, экзаменах и в реальном общении.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn" onclick="document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });">
+                        🧠 Проверь свой английский
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
+                        ✉️ Запишись на занятия
+                    </button>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🇪🇸</div>
-                    <h3>Испанский язык</h3>
-                    <p>Погружение в культуру и язык Испании и Латинской Америки. Обучение разговорной речи, чтению и письму на всех уровнях.</p>
+            </div>
+            <div class="hero-languages">
+                <strong>Направления, с которыми я работаю:</strong>
+                <div class="badge-list">
+                    <span>Английский для школьников</span>
+                    <span>Подготовка к ОГЭ и ЕГЭ</span>
+                    <span>Взрослым с нуля и выше</span>
+                    <span>Разговорный английский</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🇩🇪</div>
-                    <h3>Немецкий язык</h3>
-                    <p>Подготовка к экзаменам Goethe-Zertifikat, B1-B2-C1. Акцент на грамматике, произношении и повседневном общении.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Для детей и взрослых</h3>
-                    <p>Индивидуальный подход к каждому возрасту. Для детей — игры, песни, мультфильмы. Для взрослых — практические ситуации и актуальные темы.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Группы и индивидуально</h3>
-                    <p>Выбирайте формат, который подходит именно вам: индивидуальные занятия для максимального прогресса или групповые для практики общения.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📅</div>
-                    <h3>Гибкий график</h3>
-                    <p>Занятия в удобное для вас время, онлайн или очно. Удобный расписание и возможность переноса уроков при необходимости.</p>
+                <div class="badge-list" style="margin-top:0.6rem;">
+                    <span>Испанский и немецкий (база)</span>
+                    <span>Международные курсы: Academy Stars, Kid's Box, Power Up, Prepare, Go Getter и др.</span>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials">
-            <h2>Отзывы учеников</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="quote">Екатерина Алексеевна — потрясающий преподаватель! За несколько месяцев мои знания английского выросли настолько, что я смогла успешно пройти собеседование на работу в международной компании.</p>
-                    <p class="author">— Анна, 28 лет</p>
+        <!-- Обо мне -->
+        <section id="about" class="animate">
+            <h2>✨ Обо мне</h2>
+            <p>
+                Более 15 лет преподаю английский, испанский и немецкий языки детям и взрослым. Работала со школьниками разных уровней, студентами и взрослыми, которые приходили с запросами от «сдать экзамен» до «хочу свободно говорить в путешествиях».
+            </p>
+            <p>
+                Сертифицированный специалист по международным курсам:
+                <strong>Academy Stars, Kid's Box, Power Up, Prepare, Go Getter</strong> и другим учебным программам.
+            </p>
+            <div class="quote-block">
+                Ученики часто говорят: «С тобой английский — это не скучные правила, а живые истории, игры и разговоры». Именно к этому я и стремлюсь на каждом занятии.
+            </div>
+            <div class="pill-row">
+                <div class="pill">👩‍🏫 Индивидуальный подход к каждому ученику</div>
+                <div class="pill">🎧 Много аудирования и говорения</div>
+                <div class="pill">💻 Онлайн-формат — откуда угодно</div>
+            </div>
+        </section>
+
+        <!-- Методика -->
+        <section id="method" class="animate">
+            <h2>🎯 Методика</h2>
+            <p>Каждый урок — это комбинация понятной грамматики, живых тем и игр на говорение.</p>
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-emoji">💬</div>
+                    <div>
+                        <strong>Игры на speaking</strong>
+                        <p>Разговорные игры, ролевые ситуации и мини-дискуссии, чтобы говорить стало естественно.</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="quote">Моя дочь раньше ненавидела испанский, но после занятий с Екатериной она начала с удовольствием заниматься и даже поехала в Испанию на летние каникулы!</p>
-                    <p class="author">— Олег, отец ученицы</p>
+                <div class="method-card">
+                    <div class="method-emoji">🧩</div>
+                    <div>
+                        <strong>Интерактивные задания</strong>
+                        <p>Онлайн-упражнения, карточки, квизы и платформы, которые удерживают внимание.</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="quote">Готовился к экзамену Goethe-Zertifikat B2. Екатерина Алексеевна отлично объясняет сложные грамматические конструкции и всегда находит время для дополнительных занятий.</p>
-                    <p class="author">— Дмитрий, 35 лет</p>
+                <div class="method-card">
+                    <div class="method-emoji">🔥</div>
+                    <div>
+                        <strong>Живые темы</strong>
+                        <p>Музыка, сериалы, хобби и профессии — говорим о том, что реально интересно вам.</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="quote">Занимаюсь с Екатериной уже год. Начинала с нуля, а теперь свободно общаюсь на работе и в путешествиях. Очень рекомендую!</p>
-                    <p class="author">— Мария, 32 года</p>
+                <div class="method-card">
+                    <div class="method-emoji">🎯</div>
+                    <div>
+                        <strong>Индивидуальный маршрут</strong>
+                        <p>Программу выстраиваю под ваши цели: экзамен, переезд, работа или просто «говорить свободно».</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Свяжитесь со мной</h2>
-            <p>Готова ответить на все ваши вопросы и помочь выбрать оптимальный формат занятий для вас или вашего ребенка.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>ekaterina.juchkova@example.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>+7 (999) 123-45-67</span>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>Москва, район Кунцево</span>
-                </div>
-                <div class="contact-item">
-                    <span>💻</span>
-                    <span>Онлайн-занятия по всему миру</span>
-                </div>
+        <!-- Форматы -->
+        <section id="formats" class="animate">
+            <h2>📚 Форматы обучения</h2>
+            <div class="formats-header">
+                <ul class="formats-list">
+                    <li><strong>Индивидуальные занятия</strong> — 40 минут, полностью под ваш запрос.</li>
+                    <li><strong>Мини-группы до 4 человек</strong> — 45 минут, динамика и поддержка единомышленников.</li>
+                    <li><strong>Абонементы</strong> — 8 занятий от <span style="color: #e91e63; font-weight: 700;">12 000 ₽</span>.</li>
+                    <li>Домашние задания в личном кабинете на платформе <strong>«Взнания»</strong>.</li>
+                </ul>
+                <p class="tagline">Подберём формат под ваш уровень, задачи и расписание.</p>
             </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="mailto:ekaterina.juchkova@example.com" class="cta-button">Написать письмо</a>
-                <a href="tel:+79991234567" class="cta-button">Позвонить</a>
+
+            <div class="format-grid">
+                <div class="format-card">
+                    <div>
+                        <div class="format-title"><span class="format-icon">🎓</span>Абонемент (школьники)</div>
+                        <p class="format-desc">8 занятий по 40 минут. Английский и испанский. Игры, интерактив, регулярная обратная связь для родителей.</p>
+                        <div class="price">12 000 ₽<span>за 8 занятий</span></div>
+                    </div>
+                    <div class="format-actions">
+                        <button class="btn btn-small" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Записаться</button>
+                    </div>
+                </div>
+
+                <div class="format-card">
+                    <div>
+                        <div class="format-title"><span class="format-icon">👩‍💼</span>Абонемент (взрослые)</div>
+                        <p class="format-desc">8 занятий по 40 минут. Английский для работы, путешествий и жизни. Гибкий подход и задания под вашу сферу.</p>
+                        <div class="price">12 600 ₽<span>за 8 занятий</span></div>
+                    </div>
+                    <div class="format-actions">
+                        <button class="btn btn-small" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Записаться</button>
+                    </div>
+                </div>
+
+                <div class="format-card">
+                    <div>
+                        <div class="format-title"><span class="format-icon">🙋‍♀️</span>Индивидуальное занятие</div>
+                        <p class="format-desc">40 минут в будни. Английский, испанский и немецкий. В выходные действует другая стоимость.</p>
+                        <div class="price">2 200 ₽<span>за 1 урок (будни)</span></div>
+                    </div>
+                    <div class="format-actions">
+                        <button class="btn btn-small" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Подробнее</button>
+                    </div>
+                </div>
+
+                <div class="format-card">
+                    <div>
+                        <div class="format-title"><span class="format-icon">👥</span>Мини-группа (8 занятий)</div>
+                        <p class="format-desc">45 минут, игры, интерактив, учебники Cambridge. Английский и испанский для тех, кто любит учиться в компании.</p>
+                        <div class="price">14 000 ₽<span>за 8 занятий</span></div>
+                    </div>
+                    <div class="format-actions">
+                        <button class="btn btn-small" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Записаться</button>
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
+
+        <!-- Инструменты -->
+        <section id="tools" class="animate">
+            <h2>🛠 Инструменты и платформы</h2>
+            <p>Чтобы уроки были наглядными и вовлекающими, использую современные цифровые сервисы:</p>
+            <div class="tools-list">
+                <span class="tool-pill">Zoom / видеосвязь в высоком качестве</span>
+                <span class="tool-pill">Онлайн-платформа «Взнания»</span>
+                <span class="tool-pill">Интерактивные доски</span>
+                <span class="tool-pill">Онлайн-тесты и квизы</span>
+                <span class="tool-pill">Карточки слов и игры</span>
+            </div>
+            <p class="tools-note">Все материалы и домашние задания в одном месте — ничего не потеряется, а прогресс можно легко отслеживать.</p>
+        </section>
+
+        <!-- Квиз -->
+        <section id="quiz" class="animate">
+            <h2>🧠 Проверь свой английский</h2>
+            <p class="quiz-intro">
+                Ответьте на 20 коротких вопросов и узнайте, <strong>примерный уровень английского (от A1 до C1)</strong>.
+                Это не официальный экзамен, а дружеская диагностика, чтобы понять стартовую точку.
+            </p>
+
+            <div class="quiz-card" id="quiz-start-block">
+                <p>Тест займёт около 5–10 минут. У некоторых вопросов варианты очень похожи — выбирайте тот, который звучит наиболее естественно.</p>
+                <div class="quiz-meta">
+                    <span>🔢 20 вопросов</span>
+                    <span>🎯 Уровни A1–C1</span>
+                    <span>⏱ Без таймера</span>
+                </div>
+                <button class="btn" id="start-quiz">Начать тест</button>
+            </div>
+
+            <div class="quiz-card hidden" id="quiz-question-block">
+                <div class="quiz-meta">
+                    <span id="quiz-progress-label">Вопрос 1 из 20</span>
+                    <span id="quiz-score-label">Верных ответов: 0</span>
+                </div>
+                <p id="question-text"><strong>Вопрос появится здесь.</strong></p>
+                <div class="quiz-options" id="options-container"></div>
+                <p class="quiz-progress-text" id="quiz-level-hint">Первые вопросы проще (A1–A2), дальше сложность растёт.</p>
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                </div>
+                <div class="quiz-actions">
+                    <button class="btn" id="next-question" disabled>Следующий вопрос →</button>
+                </div>
+            </div>
+
+            <div class="quiz-card hidden quiz-result" id="quiz-result-block">
+                <h3>Тест завершён! 🎉</h3>
+                <div class="quiz-score-big" id="quiz-score-big">0 / 20</div>
+                <div class="quiz-level" id="quiz-level-text">Предполагаемый уровень: A1</div>
+                <p class="quiz-advice" id="quiz-advice-text">Комментарий по результату появится здесь.</p>
+                <div class="quiz-cta">
+                    <p><strong>Хотите разобрать результат и получить персональные рекомендации по обучению?</strong></p>
+                    <p>
+                        Сделайте скрин экрана или просто напишите «прошёл(а) тест по английскому» — и отправьте мне сообщение во VK.
+                        Я подскажу уровень и предложу удобный формат занятий.
+                    </p>
+                    <a class="btn contact-btn" href="https://vk.com/faeshka" target="_blank" rel="noopener noreferrer">Написать Екатерине во VK</a>
+                </div>
+                <div style="margin-top: 1.2rem;">
+                    <button class="btn btn-secondary" id="restart-quiz">Пройти тест ещё раз</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="contact-section animate">
+            <h2>🚀 Запишись на занятия</h2>
+            <p>Готовы обсудить цели, формат и расписание? Напишите мне во VK:</p>
+            <a class="btn contact-btn" href="https://vk.com/faeshka" target="_blank" rel="noopener noreferrer">Перейти во VK к Екатерине</a>
+            <p class="contact-note">Можно просто написать: «Хочу на английский» или «Прошёл(а) тест на сайте» — и я помогу подобрать формат и уровень.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 Жучкова Екатерина Алексеевна | Преподаватель английского, испанского, немецкого языков</p>
-        <div class="social-icons">
-            <a href="#" class="social-icon">📱</a>
-            <a href="#" class="social-icon">💬</a>
-            <a href="#" class="social-icon">📘</a>
-        </div>
-        <p>Все права защищены</p>
+        © 2025 Жучкова Екатерина Алексеевна. Репетитор английского, испанского и немецкого языков.
     </footer>
+
+    <!-- Логика квиза -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = [
+                {
+                    text: "Choose the correct option: I ____ coffee every morning.",
+                    options: ["drink", "drinks", "am drink"],
+                    correctIndex: 0,
+                },
+                {
+                    text: "Choose the correct past form: Yesterday I ____ to the cinema.",
+                    options: ["go", "went", "gone"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct article: He is ____ engineer.",
+                    options: ["a", "an", "-"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Find the correct sentence.",
+                    options: ["She don't like cats.", "She doesn't likes cats.", "She doesn't like cats."],
+                    correctIndex: 2,
+                },
+                {
+                    text: "Choose the best option: How long ____ English?",
+                    options: ["do you learn", "have you been learning", "are you learning usually"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct preposition: I'm interested ___ music.",
+                    options: ["on", "in", "about"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the synonym of 'big'.",
+                    options: ["tiny", "huge", "narrow"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the opposite of 'boring'.",
+                    options: ["exciting", "tired", "afraid"],
+                    correctIndex: 0,
+                },
+                {
+                    text: "Which word is NOT a means of transport?",
+                    options: ["train", "bicycle", "kitchen"],
+                    correctIndex: 2,
+                },
+                {
+                    text: "Choose the correct word: ____ you ever been to London?",
+                    options: ["Have", "Did", "Are"],
+                    correctIndex: 0,
+                },
+                {
+                    text: "Choose the correct option: If it ____ tomorrow, we'll stay at home.",
+                    options: ["rains", "will rain", "rain"],
+                    correctIndex: 0,
+                },
+                {
+                    text: "Choose the correct phrasal verb: Turn ____ the light, please.",
+                    options: ["on", "up", "out"],
+                    correctIndex: 0,
+                },
+                {
+                    text: "Choose the correct option: This book is ___ than that one.",
+                    options: ["interesting", "the most interesting", "more interesting"],
+                    correctIndex: 2,
+                },
+                {
+                    text: "Choose the correct relative pronoun: The man ___ lives next door is a doctor.",
+                    options: ["which", "who", "where"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct word order:",
+                    options: ["Never I have been to Spain.", "I have never been to Spain.", "I never have been to Spain."],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct reported speech: 'I am tired,' she said. She said that she ____ tired.",
+                    options: ["is", "was", "were"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct option: By this time tomorrow, I ____ the project.",
+                    options: ["will finish", "will have finished", "am finishing"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Which sentence is more natural?",
+                    options: ["I'm agreeing with you.", "I agree with you.", "I am agree with you."],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct word: It was an ____ film, I almost fell asleep.",
+                    options: ["excited", "exciting", "excite"],
+                    correctIndex: 1,
+                },
+                {
+                    text: "Choose the correct option: There isn't ____ milk left in the fridge.",
+                    options: ["many", "much", "a few"],
+                    correctIndex: 1,
+                },
+            ];
+
+            const totalQuestions = questions.length;
+
+            const startBlock = document.getElementById("quiz-start-block");
+            const questionBlock = document.getElementById("quiz-question-block");
+            const resultBlock = document.getElementById("quiz-result-block");
+
+            const startBtn = document.getElementById("start-quiz");
+            const restartBtn = document.getElementById("restart-quiz");
+            const nextBtn = document.getElementById("next-question");
+
+            const questionText = document.getElementById("question-text");
+            const optionsContainer = document.getElementById("options-container");
+
+            const progressLabel = document.getElementById("quiz-progress-label");
+            const scoreLabel = document.getElementById("quiz-score-label");
+            const progressFill = document.getElementById("quiz-progress-fill");
+
+            const scoreBig = document.getElementById("quiz-score-big");
+            const levelText = document.getElementById("quiz-level-text");
+            const adviceText = document.getElementById("quiz-advice-text");
+
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let selectedIndex = null;
+            let answered = false;
+
+            function resetQuiz() {
+                currentQuestionIndex = 0;
+                score = 0;
+                selectedIndex = null;
+                answered = false;
+                scoreLabel.textContent = "Верных ответов: 0";
+                progressFill.style.width = "0%";
+                resultBlock.classList.add("hidden");
+                startBlock.classList.remove("hidden");
+                questionBlock.classList.add("hidden");
+            }
+
+            function startQuiz() {
+                startBlock.classList.add("hidden");
+                resultBlock.classList.add("hidden");
+                questionBlock.classList.remove("hidden");
+                currentQuestionIndex = 0;
+                score = 0;
+                selectedIndex = null;
+                answered = false;
+                updateQuestion();
+            }
+
+            function updateQuestion() {
+                const q = questions[currentQuestionIndex];
+                questionText.innerHTML = "<strong>" + q.text + "</strong>";
+                optionsContainer.innerHTML = "";
+                selectedIndex = null;
+                answered = false;
+                nextBtn.disabled = true;
+
+                progressLabel.textContent = "Вопрос " + (currentQuestionIndex + 1) + " из " + totalQuestions;
+                scoreLabel.textContent = "Верных ответов: " + score;
+                const progressPercent = (currentQuestionIndex / totalQuestions) * 100;
+                progressFill.style.width = progressPercent + "%";
+
+                q.options.forEach(function (optionText, index) {
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "quiz-option";
+                    btn.textContent = optionText;
+
+                    btn.addEventListener("click", function () {
+                        if (answered) return;
+                        selectedIndex = index;
+                        Array.from(optionsContainer.children).forEach(function (child) {
+                            child.classList.remove("selected");
+                        });
+                        btn.classList.add("selected");
+                        checkAnswer();
+                    });
+
+                    optionsContainer.appendChild(btn);
+                });
+            }
+
+            function checkAnswer() {
+                if (selectedIndex === null) return;
+
+                const q = questions[currentQuestionIndex];
+                const options = Array.from(optionsContainer.children);
+
+                answered = true;
+                nextBtn.disabled = false;
+
+                options.forEach(function (btn, index) {
+                    if (index === q.correctIndex) {
+                        btn.classList.add("correct");
+                    }
+                    if (index === selectedIndex && index !== q.correctIndex) {
+                        btn.classList.add("incorrect");
+                    }
+                    btn.classList.remove("selected");
+                });
+
+                if (selectedIndex === q.correctIndex) {
+                    score++;
+                    scoreLabel.textContent = "Верных ответов: " + score;
+                }
+            }
+
+            function showResult() {
+                questionBlock.classList.add("hidden");
+                resultBlock.classList.remove("hidden");
+
+                scoreBig.textContent = score + " / " + totalQuestions;
+
+                let level = "";
+                let advice = "";
+
+                if (score <= 5) {
+                    level = "A1 (Beginner)";
+                    advice =
+                        "Базовый уровень. Отличная точка для старта: мы будем простыми словами закрывать пробелы, ставить произношение и строить самые нужные фразы.";
+                } else if (score <= 10) {
+                    level = "A2 (Elementary)";
+                    advice =
+                        "Вы уже понимаете базовые конструкции и лексику. Можно системно подтянуть грамматику и расширить словарный запас, чтобы увереннее говорить в типичных ситуациях.";
+                } else if (score <= 14) {
+                    level = "B1 (Intermediate)";
+                    advice =
+                        "Хорошая база! Есть запас слов и грамматики, но иногда не хватает точности и беглости речи. На занятиях можем глубже проработать сложные времена и устойчивые выражения.";
+                } else if (score <= 17) {
+                    level = "B2 (Upper-Intermediate)";
+                    advice =
+                        "Уверенный уровень. Можно сфокусироваться на естественности речи, идиомах и профессиональной лексике — в зависимости от ваших целей.";
+                } else {
+                    level = "C1 (Advanced)";
+                    advice =
+                        "Высокий уровень! Имеет смысл работать над нюансами: стилистика, идиомы, академический или специализированный английский, подготовка к международным экзаменам.";
+                }
+
+                levelText.textContent = "Предполагаемый уровень: " + level;
+                adviceText.textContent = advice;
+            }
+
+            startBtn.addEventListener("click", startQuiz);
+
+            nextBtn.addEventListener("click", function () {
+                if (!answered) return;
+                currentQuestionIndex++;
+                if (currentQuestionIndex < totalQuestions) {
+                    updateQuestion();
+                } else {
+                    progressFill.style.width = "100%";
+                    showResult();
+                }
+            });
+
+            restartBtn.addEventListener("click", startQuiz);
+
+            resetQuiz();
+        });
+    </script>
 </body>
 </html>
